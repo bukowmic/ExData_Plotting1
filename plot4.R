@@ -53,6 +53,10 @@ power.consumption.data$DateTime <- strptime(
   , format="%d/%m/%Y %H:%M:%S"
 )
 
+#setting english setlocale
+local.time <- Sys.getlocale("LC_TIME")
+Sys.setlocale("LC_TIME", "C")
+
 #generating plot4.png for Project 1
 png(
   filename="plot4.png"
@@ -139,3 +143,6 @@ plot(
 )
 
 dev.off()
+
+#setting previous datime settings
+Sys.setlocale("LC_TIME", local.time)
